@@ -1,6 +1,25 @@
 class Task < ApplicationRecord
 
 
+  def self.destroy_task(id)
+
+    task = Task.find_by(id: id)
+
+    if task.nil?
+
+      false
+
+    else
+
+      task.destroy!
+
+      true
+
+    end
+
+
+  end
+
   def self.update_task(id, text)
 
     task = Task.find_by(id: id)
