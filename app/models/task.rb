@@ -1,5 +1,34 @@
 class Task < ApplicationRecord
 
+
+  def self.update_task(id, text)
+
+    task = Task.find_by(id: id)
+
+    if task.nil?
+
+      false
+
+    else
+
+      if text.blank?
+
+        false
+
+      else
+
+        text = text.strip
+
+        task.update!(text: text)
+
+        true
+
+      end
+
+    end
+
+  end
+
   def self.create_task(text)
 
     if text.blank?

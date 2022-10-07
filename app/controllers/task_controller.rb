@@ -32,4 +32,32 @@ class TaskController < ApplicationController
 
   end
 
+  def update
+
+    id = params[:id]
+
+    text = params[:text]
+
+    task_was_updated = Task.update_task(id, text)
+
+    if task_was_updated
+
+      @success = true
+
+      @message = 'Successfully updated task'
+
+      @tasks = Task.get_all_tasks
+
+
+    else
+
+      @success = false
+
+      @message = 'There was an error updating the task'
+
+    end
+
+
+  end
+
 end
