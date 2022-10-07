@@ -64,24 +64,9 @@ class TaskController < ApplicationController
 
     id = params[:id]
 
-    task_was_destroyed = Task.destroy_task(id)
+    Task.destroy_task(id)
 
-    if task_was_destroyed
-
-      @success = true
-
-      @message = 'Successfully deleted task'
-
-      @tasks = Task.get_all_tasks
-
-
-    else
-
-      @success = false
-
-      @message = 'There was an error deleting the task'
-
-    end
+    @tasks = Task.get_all_tasks
 
   end
 
