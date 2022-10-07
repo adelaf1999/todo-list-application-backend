@@ -71,7 +71,7 @@ class Task < ApplicationRecord
 
     tasks = []
 
-    Task.all.each do |task|
+    Task.all.order('created_at DESC').each do |task|
 
       tasks.push({
                     id: task.id,
