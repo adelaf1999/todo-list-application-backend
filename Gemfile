@@ -48,4 +48,4 @@ group :development do
   # gem "spring"
 end
 gem 'rabl', '~> 0.16.0'
-
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
