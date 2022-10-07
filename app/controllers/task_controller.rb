@@ -1,5 +1,12 @@
 class TaskController < ApplicationController
 
+
+  def index
+
+    @tasks = Task.get_all_tasks
+
+  end
+
   def create
 
     text = params[:text]
