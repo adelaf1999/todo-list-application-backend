@@ -4,18 +4,7 @@ pipeline{
 
     stages{
 
-        stage('Compile Stage'){
-
-            steps{
-
-                RAILS_ENV=production rails assets:precompile
-
-
-            }
-
-        }
-
-
+    
         stage('Testing Stage') {
 
             steps{
