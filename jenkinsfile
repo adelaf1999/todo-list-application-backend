@@ -1,0 +1,54 @@
+pipeline{
+
+    agent any
+
+    stages{
+
+        stage('Compile Stage'){
+
+            steps{
+
+                RAILS_ENV=production rails assets:precompile
+
+
+            }
+
+        }
+
+
+        stage('Testing Stage') {
+
+            steps{
+
+                rspec spec/models/task_spec.rb
+
+
+            }
+
+        }
+
+
+        stage('Deployment Stage'){
+
+            steps{
+
+                git checkout development
+
+                git push origin development
+
+                git checkout main
+
+                git merge development
+
+                git push origin main
+
+                git checkout development
+
+            }
+
+        }
+
+
+    }
+
+}
